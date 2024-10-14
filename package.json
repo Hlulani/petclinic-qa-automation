@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test --debug",
+    "test": "npx playwright test",
     "test:firefox": "npx playwright test  --browser=firefox --headed ",
     "test:chromium": "npx playwright test  --browser=chromium --headed",
     "test:webkit": "npx playwright test  --browser=webkit --headed",
@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.48.0",
+    "@types/node": "^22.7.5",
     "allure-playwright": "^3.0.4",
     "eslint": "^9.12.0"
   }
