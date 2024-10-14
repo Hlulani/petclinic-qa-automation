@@ -1,5 +1,5 @@
 
-# Tractive QA Automation
+# PetClinic QA Automation
 
 This project uses Playwright for automated testing along with Allure for generating detailed reports.
 
@@ -25,8 +25,8 @@ This project uses Playwright for automated testing along with Allure for generat
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/Hlulani/tractive-qa-automation.git
-   cd tractive-qa-automation
+   git clone https://github.com/Hlulani/petclinic-qa-automation.git
+   cd petclinic-qa-automation
    ```
 
 2. Install the required dependencies:
@@ -191,6 +191,6 @@ For detailed bug reporting, I have created a Trello board to document the findin
    - If a bug is encountered, particularly with the registration form due to email reuse, you can re-run the test after ensuring a new email is being used. This is mainly due to the fact that for this test, I’ve added a list of acceptable emails in the system but in a real-world scenario, we would have test users who are whitelisted to avoid such conflicts.
 
 6. **Trello Board Link**:
-   - [(https://trello.com/invite/b/67094e88e1b4efd0ed8dfd53/ATTIa7eef1f0f00310914be09ce49d13390f1CE70AD4/tractive-kanban)]
+   - []
 
 ---
