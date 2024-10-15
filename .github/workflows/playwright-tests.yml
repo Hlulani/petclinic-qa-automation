@@ -21,7 +21,7 @@ jobs:
       with:
         node-version: '18'
 
-    # Install dependencies
+ 
     - name: Install dependencies
       run: npm install
 
@@ -33,18 +33,24 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install
 
-    # Start the frontend server
-    - name: Start Frontend Server
-      run: npm start &
-      env:
-        CI: true  
+    # Start Backend Server using Docker
+    - name: Start Backend Server
+      run: |
+        docker run -d -p 9966:9966 springcommunity/spring-petclinic-rest
+        sleep 10  # Wait for the backend to be fully initialized
 
-    # Wait for frontend to be available on localhost:4200
+    # Start Frontend Server using Docker
+    - name: Start Frontend Server
+      run: |
+        docker run --rm -d -p 8080:8080 spring-petclinic-angular:latest
+        sleep 10  # Wait for the frontend to be fully initialized
+
+    # Wait for Frontend to be available on localhost:8080
     - name: Wait for Frontend
       run: |
-        timeout 60s bash -c 'until echo > /dev/tcp/localhost/4200; do sleep 1; done'
+        timeout 60s bash -c 'until echo > /dev/ttcp/localhost/8080; do sleep 1; done'
 
-    # Run Playwright tests
+    # Run Playwright tests (ensure baseURL points to localhost:8080)
     - name: Run Playwright Tests
       run: npx playwright test
 
