@@ -93,7 +93,6 @@ test.describe('Add New Owner Tests', () => {
 
     await expect(addOwnerPage.isAddOwnerButtonDisabled()).toBeTruthy();
 
-    // Verify that the error message for the first name is displayed
     await expect(addOwnerPage.firstNameErrorMessage).toBeVisible();
     await expect(addOwnerPage.firstNameErrorMessage).toHaveText('First name must consist of letters only');
   });

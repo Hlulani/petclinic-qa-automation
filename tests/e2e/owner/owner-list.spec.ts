@@ -11,17 +11,17 @@ test.describe('Owner List Tests', () => {
   test('Search for an owner and verify in table', async ({ page }) => {
     const ownerListPage = new OwnerListPage(page);
 
-    // Search for a specific owner
+  
     await ownerListPage.searchForOwner('Franklin');
 
-    // Verify that the owner appears in the table
+ 
     await ownerListPage.verifyOwnerInTable('George Franklin');
   });
 
   test('Add New Owner button is present', async ({ page }) => {
     const ownerListPage = new OwnerListPage(page);
 
-    // Verify that the 'Add Owner' button exists
+   
     await expect(ownerListPage.addOwnerButton).toBeVisible();
   });
 
