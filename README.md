@@ -164,39 +164,4 @@ You can view and manage the test cases here: [Tesmo (https://hlulanixkontron.tes
 
 To sign up for a trial of Testmo, visit their website and start your own free trial for 20 days.
 
-### Manual Tests
-
-For detailed bug reporting, I have created a Trello board to document the findings from manual testing. Unfortunately, you'll need to create a Trello account to access the board. Below are the instructions for accessing and navigating the Trello board:
-
-#### Steps to Access the Trello Board:
-
-1. **Create a Trello Account**:
-   - If you don’t have a Trello account yet, go to [Trello](https://trello.com) and sign up for a free account.
-   - You can either sign up using your email address or sign in using a Google account.
-
-2. **Access the Trello Board**:
-   - Once your account is created, you can access the Trello board for bug tracking via the shared link (to be provided).
-   - If you've received an invitation via email, click the invite link to join the board.
-
-3. **Board Structure**:
-   - The Trello board is organized with different columns for each stage of the manual testing process. Here's an overview of the columns:
-     - **To Do**: Lists all the test cases to be executed.
-     - **In Progress**: The tests that are currently being executed are moved here.
-     - **Bugs Found**: If any bugs are discovered during the manual testing, they are added to this column.
-     - **Completed**: Once testing is done and no bugs are found, or bugs are documented, the cards are moved here.
-
-4. **Bug Reporting Format**:
-   - Each bug found is documented in a Trello card, containing the following information:
-     - **Title**: A short and descriptive summary of the bug.
-     - **Description**: Steps to reproduce, expected and actual results, and any relevant details like environment or severity.
-     - **Labels**: Used to prioritize the bug (Critical, High, Medium, Low).
-     - **Attachments**: Screenshots or videos are attached if applicable.
-
-
-5. **Re-Running Tests on Failures**:
-   - If a bug is encountered, particularly with the registration form due to email reuse, you can re-run the test after ensuring a new email is being used. This is mainly due to the fact that for this test, I’ve added a list of acceptable emails in the system but in a real-world scenario, we would have test users who are whitelisted to avoid such conflicts.
-
-6. **Trello Board Link**:
-   - []
-
 ---
