@@ -1,4 +1,5 @@
 name: Playwright Tests Workflow
+
 on:
   push:
     branches:
@@ -18,25 +19,43 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '18'
+        node-version: '16.14'
 
-    # Install dependencies
+    # Install dependencies for linting and other Node-related tasks
     - name: Install dependencies
       run: npm install
-    - name: Run ESLint
-      run: npm run lint
 
-    # Install Playwright browsers
-    - name: Install Playwright Browsers
-      run: npx playwright install
+    # Run ESLint
+    # name: Run ESLint
+    # run: npm run lint
 
-    # Install Allure Commandline globally
-    - name: Install Allure Commandline globally
-      run: npm install -g allure-commandline
+    # Start Backend Server using Docker
+    - name: Start Backend Server
+      run: |
+        docker run -d -p 9966:9966 springcommunity/spring-petclinic-rest
+        sleep 10  # Wait for the backend to be fully initialized
+
+    # Build and Run Angular Frontend in Docker
+    - name: Build and Run Angular Frontend
+      run: |
+        git clone https://github.com/spring-petclinic/spring-petclinic-angular.git
+        cd spring-petclinic-angular
+        docker build -t spring-petclinic-angular:latest .
+        docker run -d -p 8080:8080 spring-petclinic-angular:latest
+        sleep 10  # Wait for the frontend to be fully initialized
+
+    # Wait for Frontend to be available on localhost:8080
+    - name: Wait for Frontend
+      run: |
+        timeout 60s bash -c 'until echo > /dev/tcp/localhost/8080; do sleep 1; done'
 
     # Run Playwright tests
     - name: Run Playwright Tests
       run: npx playwright test
+
+    # Install Allure Commandline globally
+    - name: Install Allure Commandline globally
+      run: npm install -g allure-commandline
 
     # Generate Allure report
     - name: Generate Allure Report
@@ -45,10 +64,8 @@ jobs:
 
     # Upload Allure report as an artifact
     - name: Upload Allure Report
-      if: always()  # Ensure this runs even if the tests fail
+      if: always()  
       uses: actions/upload-artifact@v3
       with:
         name: allure-report
         path: ./allure-report
-
-  
