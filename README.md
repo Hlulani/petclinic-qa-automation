@@ -157,6 +157,12 @@ Please note, since this project is for an interview, I acknowledge that in a rea
 
 
 ----
+### Test Cases
+For documenting the test cases, I am using Testmo. Currently, I am utilizing a 20-day trial, which anyone can sign up for. Testmo is a comprehensive tool for managing test cases, reporting, and integrating with various testing frameworks.
+
+You can view and manage the test cases here: [Tesmo (https://hlulanixkontron.testmo.net/repositories/1?group_id=1)]
+
+To sign up for a trial of Testmo, visit their website and start your own free trial for 20 days.
 
 ### Manual Tests
 
