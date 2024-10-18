@@ -20,6 +20,12 @@ This project uses Playwright for automated testing along with Allure for generat
    npm install -g allure-commandline
    ```
 
+## Important repos to run before running this project:
+Pet Clinic Resources
+ - Frontend Repository: [https://github.com/spring-petclinic/spring-petclinic-angular]
+ - Backend Repository: [https://github.com/spring-petclinic/spring-petclinic-rest]
+
+
 ### Installation
 
 1. Clone the repository:
